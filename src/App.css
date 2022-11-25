@@ -1,0 +1,44 @@
+.container {
+ max-width: 80vw;
+ margin: 0 auto;
+}
+
+.navigation {
+  display: grid;
+  grid-template-columns:  1fr;
+}
+
+.navbar-ul {
+  border-top: 1px solid grey;
+  padding: 1em 1em 0 0;
+}
+.navbar-li {
+  cursor: pointer;
+  list-style: none;
+  padding: 0 1em;
+  display: inline;
+}
+
+.navbar-li:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.introduction {
+  font-size: 18px;
+  font-weight: 100;
+  padding-top: 1rem;
+}
+
+
+.loginForm {
+  margin: 4em auto;
+}
+
+.loginForm input {
+  margin-bottom: 1em;
+}
