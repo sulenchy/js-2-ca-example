@@ -42,3 +42,11 @@
 .loginForm input {
   margin-bottom: 1em;
 }
+
+
+
+.product {
+  list-style: none;
+  padding: 0.5rem;
+}
+

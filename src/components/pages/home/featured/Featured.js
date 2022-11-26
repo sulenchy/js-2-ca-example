@@ -1,26 +1,49 @@
 import { apiProducts } from "../../../constants/api";
-import fetchProducts from "../../../fetchApi";
+import React, { useState, useEffect } from 'react';
+import {Link} from "react-router-dom";
 
 
-// Why is Promise fullfilled but undefined when calling fetchProducts from fetchApi.js? 
-let url = apiProducts;
 
-const products = fetchProducts(url);
 
-console.log(products)
+// landing page (home) displaying two item with two props.
+const Featured = () => {
+  useEffect(() => {
+    getProducts();
+}, []);
 
-function Featured () {
-  // want to put the product price and information in the p tags below 
-return (
-  <div>
-    <ul>
-      <li>
-        <p>Information</p> 
-        <p>Price</p>
-      </li>
-    </ul>
-  </div>
-) 
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+      try {
+        const response = await fetch(apiProducts);
+        const data = await response.json();
+
+        setProducts(data.data);
+      } 
+      catch (error) {
+        console.error(error, 'error');
+      }
   };
   
+// placing it in html 
+  return (
+    <div>
+      <ul className="products">
+      {products.map(product => (
+        <div>
+            <li className="product" key={product.id} id={product.id}>
+              <p className="productInfo">Information: {product.attributes.information} </p>
+              <p className="productPrice">Price: {product.attributes.price},-</p>
+            </li>
+            <Link to={'/product/' +  product.id} id={product.id} className="seeMore">See More</Link>
+            </div>
+      ))}
+      </ul>
+    </div>
+    
+  );
+
+};
+
 export default Featured;
+
