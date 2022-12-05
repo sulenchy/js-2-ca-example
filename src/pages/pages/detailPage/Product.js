@@ -6,6 +6,7 @@ const Product = () => {
   useEffect(() => {
     getProductDetail();
 }, 
+// eslint-disable-next-line react-hooks/exhaustive-deps
 []);
 
     const params = useParams();
@@ -18,7 +19,6 @@ const Product = () => {
         const response = await fetch(`${apiProducts}/${params.id}`);
         const data = await response.json();
         setProductDetails(data.data);
-        console.log(data.data.attributes.information)
       } 
       catch (error) {
         console.error(error, 'error');
@@ -26,14 +26,15 @@ const Product = () => {
   };
 
   return (
-    // why doesnt this show? 
+    // why doesn't this show? Correct way of calling products? 
+    
     <div> 
-       {productDetails.map(product => (
-        <p>
-         {product.attributes.information}
-        </p>
-      ))} 
-     
+      <p className="productDetail">
+        {productDetails.attributes.information}  
+       </p>
+       <p className="productDetail">
+        {productDetails.attributes.price}  
+       </p>
     </div>
   )
 }
