@@ -35,18 +35,70 @@
 }
 
 
-.loginForm {
+/* .loginForm {
   margin: 4em auto;
 }
 
 .loginForm input {
   margin-bottom: 1em;
-}
-
-
+} */
 
 .product {
   list-style: none;
   padding: 0.5rem;
 }
 
+.contactForm {
+  padding: 3rem 0;
+  max-width:80%;
+}
+.contactForm label {
+  display: block;
+}
+.contactForm div {
+  padding: 1rem;
+}
+
+.break {
+  display: block;
+}
+
+/*------- loginform ----*/
+.form-error {
+    display: none;
+    color: darkred;
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+#loginF {
+  max-width: 50%;
+}
+.form{
+    padding: 2em;
+    background-color: white;
+    border-radius: 1em;
+}
+
+input {
+    width: 100%;
+    margin-top: 2px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+}
+
+button {
+    background: deepskyblue;
+    border: none;
+    width: 200px;
+    padding: 1rem;
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 0.2rem;
+}

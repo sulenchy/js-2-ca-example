@@ -11,7 +11,15 @@ function Navbar() {
           Login
         </NavLink>
       </li>
-      <li className="navbar-li">Contact</li>
+      <li className="navbar-li">
+        <NavLink
+          to={`contact`}
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+        >
+          Contact
+        </NavLink>
+      </li>
+      
       <li className="navbar-li">
         <NavLink
           to="/"
