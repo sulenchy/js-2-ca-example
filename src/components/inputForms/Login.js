@@ -1,48 +1,59 @@
-import {checkLength, validatePassword} from "../validation/CheckInput";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { authApi } from "../constants/api";
+import { NavLink } from "react-router-dom";
 
-// what about using react hooks for validating the form instead?
 const LoginForm = () => {
-    return (
-        <form className="loginForm" id="loginF" action="#">
-            <div className="formInput">
-                <label for="username">Username</label> 
-                <input type="username" name="username" id="username"/>
-                <div className="form-error" id="usernameError">Please enter your username</div>
-            </div>
-            <div className="formInput">
-                <label for="password">Password</label> 
-                <input type="password" name="password" id="password"/> 
-                <div className="form-error" id="passwordError">Incorrect password.</div>
-            </div>
-            <div className="formInput">
-                <button type="submit">Log In</button>
-            </div>
-        </form> 
-    )     
-};
-LoginForm();
+    const schema  = yup.object().shape({
+        username: yup.string().required("You have to fill in your username"),
+        password: yup.string().required("Wrong password")
+    })
 
-const loginForm = document.querySelector("#loginF");
-const username = document.querySelector("#username");
-const usernameError = document.querySelector("#usernameError");
-const password = document.querySelector("#password");
-const passwordError = document.querySelector("#passwordError");
+    const { register, handleSubmit, formState: {errors} } = useForm({
+        resolver: yupResolver(schema)
+    });
 
-function validateUser(e){
-    e.preventDefault()
+    const onSubmit = (data) => {
+        // what's being passed in login form
+        const username = data.username;
+        const pwd = data.password;
     
-    if(checkLength(username.value, 3)) {
-        usernameError.getElementsByClassName.display = "none";
-    } else {
-        usernameError.style.display = "block";
-        }
-    if(validatePassword(password.value)) {
-        passwordError.style.display = 'none';
-    } else {
-        passwordError.style.display = 'block';
-    }
-}
-
-loginForm.addEventListener("submit", validateUser)
+        // api request 
+        const userAuth = async () => {
+            const settings = {
+                method: 'POST',
+                body: JSON.stringify({username: username, password: pwd}),
+                headers: {
+                    'Authorization': 'Basic', 
+                    'Content-Type': 'application/json', 
+            }};
+            try {
+              const response = await fetch(authApi, settings);
+              const data = await response.json();
+        
+              if(response) {
+                //redirect to admin page.
+                <NavLink to={"admin"} />
+              } 
+            } 
+            catch (error) {
+              console.log(error, 'error');
+            }
+        };
+        userAuth();
+       
+    };
+    
+    return (
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <input type="text" placeholder="username..." {...register("username")} />
+            <small className="error">{errors.username?.message}</small>
+            <input type="password" placeholder="password..." {...register("password")} />
+            <small className="error">{errors.password?.message}</small>
+            <input type="submit" />
+        </form>
+    );
+};
 
 export default LoginForm;

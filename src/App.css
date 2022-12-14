@@ -64,8 +64,7 @@
 }
 
 /*------- loginform ----*/
-.form-error {
-    display: none;
+.error {
     color: darkred;
     font-size: 0.9rem;
     margin-top: 2px;
@@ -92,13 +91,6 @@ label {
     margin-top: 1rem;
 }
 
-button {
-    background: deepskyblue;
-    border: none;
-    width: 200px;
-    padding: 1rem;
-    color: white;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 0.2rem;
+.radio input {
+  width: auto;
 }

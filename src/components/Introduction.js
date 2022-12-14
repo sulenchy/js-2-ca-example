@@ -1,7 +1,7 @@
-const Introduction = () => {
+const Introduction = (props) => {
     return (
       
-        <h2 className="introduction">Featured products below</h2>
+        <h2 className="introduction">{props.name}</h2>
    
     );
   };
