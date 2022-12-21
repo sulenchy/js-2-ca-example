@@ -94,3 +94,8 @@ label {
 .radio input {
   width: auto;
 }
+
+.login {
+  margin-top: 2rem;
+  display: block;
+}
