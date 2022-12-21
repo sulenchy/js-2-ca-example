@@ -1,0 +1,101 @@
+.container {
+ max-width: 80vw;
+ margin: 0 auto;
+}
+
+.navigation {
+  display: grid;
+  grid-template-columns:  1fr;
+}
+
+.navbar-ul {
+  border-top: 1px solid grey;
+  padding: 1em 1em 0 0;
+}
+.navbar-li {
+  cursor: pointer;
+  list-style: none;
+  padding: 0 1em;
+  display: inline;
+}
+
+.navbar-li:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.introduction {
+  font-size: 18px;
+  font-weight: 100;
+  padding-top: 1rem;
+}
+
+
+/* .loginForm {
+  margin: 4em auto;
+}
+
+.loginForm input {
+  margin-bottom: 1em;
+} */
+
+.product {
+  list-style: none;
+  padding: 0.5rem;
+}
+
+.contactForm {
+  padding: 3rem 0;
+  max-width:80%;
+}
+.contactForm label {
+  display: block;
+}
+.contactForm div {
+  padding: 1rem;
+}
+
+.break {
+  display: block;
+}
+
+/*------- loginform ----*/
+.error {
+    color: darkred;
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+#loginF {
+  max-width: 50%;
+}
+.form{
+    padding: 2em;
+    background-color: white;
+    border-radius: 1em;
+}
+
+input {
+    width: 100%;
+    margin-top: 2px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+}
+
+.radio input {
+  width: auto;
+}
+
+.login {
+  margin-top: 2rem;
+  display: block;
+}
