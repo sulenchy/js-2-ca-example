@@ -1,8 +1,6 @@
 const Introduction = (props) => {
     return (
-      
         <h2 className="introduction">{props.name}</h2>
-   
     );
   };
   

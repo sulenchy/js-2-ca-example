@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { apiProducts } from "../../components/constants/api";
 import { useParams } from "react-router";
 import Introduction from "../../components/Introduction";
+import GoBack from "../../components/GoBack";
 
 const Product = () => {
   useEffect(() => {
@@ -40,6 +41,7 @@ const Product = () => {
     // else return as normal 
     return (
       <>
+        <GoBack />
         <Introduction name = {productDetails.attributes.title} />
         <p>
           <span className="break">Paper quality and size: </span>

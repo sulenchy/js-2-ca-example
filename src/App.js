@@ -10,7 +10,6 @@ function App() {
         <LogoName />
         <Navbar />
       </div>
-
       <Router />
     </div>
   );

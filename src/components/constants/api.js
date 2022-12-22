@@ -1,2 +1,2 @@
 export const apiProducts = "http://localhost:1337/api/products";
-export const authApi = "http://localhost:1337/api/v1/auth/login";
+export const authApi = "http://localhost:1337/api/auth/login";

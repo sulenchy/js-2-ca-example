@@ -16,21 +16,23 @@ const LoginForm = () => {
           }),
         onSubmit: values => {
             const userAuth = async () => {
-              // how to write the token down so it is stored upon receiving it? 
-              const token = data.accessToken;
+              // how to store token upon receiving it? 
+              //const token = data.accessToken; 
                 const settings = {
                     method: 'POST',
                     // getting values from the form input and storing them in body
                     body: JSON.stringify(values),
                     headers: {
-                        'Authorization': `Bearer ${token}`,
+                        'Authorization': `Bearer`,
                         'Content-Type': 'application/json', 
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT',
                     }};
                 try {
                     // api request
                   const response = await fetch(authApi, settings);
                   const data = await response.json();
-                  console.log(data.accessToken)
+                 console.log(data)
                     if(response) {
                         //redirect to admin page.
                         <NavLink to={"admin"} />

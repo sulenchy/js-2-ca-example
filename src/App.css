@@ -1,8 +1,13 @@
+*{
+  font-family: sans-serif;
+}
 .container {
  max-width: 80vw;
  margin: 0 auto;
 }
-
+.logo {
+  color: rgb(47, 69, 48);
+}
 .navigation {
   display: grid;
   grid-template-columns:  1fr;
@@ -19,6 +24,12 @@
   display: inline;
 }
 
+.navbar-li a {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(78, 87, 79);
+}
+
 .navbar-li:hover {
   cursor: pointer;
   font-weight: bold;
@@ -26,6 +37,7 @@
 
 .active {
   font-weight: bold;
+  color: rgb(47, 69, 48);
 }
 
 .introduction {

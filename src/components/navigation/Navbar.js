@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <ul className="navbar-ul">
       <li className="navbar-li">
-        <NavLink
+        <NavLink 
           to={`login`}
           className={({ isActive }) => (isActive ? "active" : undefined)}
         >

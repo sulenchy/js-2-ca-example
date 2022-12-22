@@ -1,7 +1,6 @@
 import ContactForm from "../../components/inputForms/ContactForm";
 import Introduction from "../../components/Introduction";
 
-
 const Contact = () => {
     return (
       <div className="contactForm">
