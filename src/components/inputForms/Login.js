@@ -15,6 +15,7 @@ const LoginForm = () => {
             password: yup.string().required("Wrong passwor. Please try again")
           }),
         onSubmit: values => {
+          console.log(`bearer ${process.env.REACT_APP_API_TOKEN}`)
             const userAuth = async () => {
               // how to store token upon receiving it? 
               //const token = data.accessToken; 
@@ -23,7 +24,7 @@ const LoginForm = () => {
                 body: JSON.stringify(values),
                 headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `bearer ${process.env.REACT_APP_TOKEN}`
+                  'Authorization': `bearer ${process.env.REACT_APP_API_TOKEN}`
                 }
               };
                 try {
