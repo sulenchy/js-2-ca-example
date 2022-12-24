@@ -7,27 +7,25 @@ import * as yup from "yup";
 const LoginForm = () => {
     const formik = useFormik({
         initialValues: {
-            username: '',
+            identifier: '',
             password: ''
         },
         validationSchema: yup.object({
-            username: yup.string().required("You have to fill in your username."),
+            identifier: yup.string().required("You have to fill in your username."),
             password: yup.string().required("Wrong passwor. Please try again")
           }),
         onSubmit: values => {
             const userAuth = async () => {
               // how to store token upon receiving it? 
               //const token = data.accessToken; 
-                const settings = {
-                    method: 'POST',
-                    // getting values from the form input and storing them in body
-                    body: JSON.stringify(values),
-                    headers: {
-                        'Authorization': `Bearer`,
-                        'Content-Type': 'application/json', 
-                        'Access-Control-Allow-Origin': '*',
-                        'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT',
-                    }};
+              const settings = {
+                method: 'POST',
+                body: JSON.stringify(values),
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': 'bearer 65030c5b70c4c05c2c68a2537cc8b695e42e811ddea1205be9deec8b18e16bbb9023ea490a42bae588638a6b3728febcda700da225a0bc4964506e30b1ce63beec7703e61b06e5d205a832aec11de66b5409442760317582e84aba183889dd54c3855c155fe810c90779747ccd176151875d4a71c1d672f1bfc1f95feb4b5bca'
+                }
+              };
                 try {
                     // api request
                   const response = await fetch(authApi, settings);
@@ -52,13 +50,13 @@ const LoginForm = () => {
           <label htmlFor="username">Username</label>
           <input
             id="username"
-            name="username"
+            name="identifier"
             type="text"
             onChange={formik.handleChange}
-            value={formik.values.username}
+            value={formik.values.identifier}
           />
-          {formik.errors.username ? (
-             <small className="error">{formik.errors.username}</small>
+          {formik.errors.identifier ? (
+             <small className="error">{formik.errors.identifier}</small>
             ) : null}
  
           <label htmlFor="password">Password</label>
